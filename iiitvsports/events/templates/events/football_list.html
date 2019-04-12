@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+
+  <div class="mb-4">
+    <a href="{% url 'events:add_team_football' pk=event.pk %}" class="btn btn-primary" role="button">Create Team</a>
+  </div>
+
+  {% for football in footballs %}
+    <div id="{{ team.pk }}" class="card {% if forloop.last %}mb-4{% else %}mb-2{% endif %} {% if forloop.first %}border-dark{% endif %}">
+      {% if forloop.first %}
+        <div class="card-header text-white bg-dark py-2 px-3">{{event.title}}</div>
+      {% endif %}
+      <div class="card-body p-3">
+        <div class="row">
+          <div class="col-2">
+            <img src="{% static 'images/football.png' %}" alt="{{ football.created_by.username }}" class="w-100 rounded">
+            <strong class="text-muted">Created by: {{ football.created_by.username }}</strong>
+          </div>
+          <div class="col-10">
+            <div class="row mb-3">
+              <div class="col-6">
+                <strong class="text-muted">Team Name: {{ football.team_name }}</strong>
+              </div>
+              <div class="col-6 text-right">
+                <small class="text-muted">{{ football.created_at }}</small>
+                {% if football.created_by == user %}
+
+                   <a href="{% url 'events:football_edit' football.event.pk football.pk %}"
+                      class="btn btn-primary btn-sm"
+                      role="button">Edit</a>
+
+               {% endif %}
+              </div>
+            </div>
+              <div class="col-6">
+                <strong class="text-muted">Players:<br> {{football.Player1}}, {{football.Player2}}, {{football.Player3}}, {{football.Player4}},
+                  {{football.Player5}}, {{football.Player6}}, {{football.Player7}}, {{football.Player8}},
+                {{football.Player9}}, {{football.Player10}}, {{football.Player11}}</strong>
+              </div>
+              {# here #}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {# {% include 'includes/pagination.html' %} #}
+
+{% endblock %}

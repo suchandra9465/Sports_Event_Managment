@@ -1,0 +1,13 @@
+certifi==2018.4.16
+cffi==1.11.5
+Django==1.11.10
+django-bootstrap3==10.0.1
+django-braces==1.13.0
+django-gravatar==0.1.0
+django-markdown==0.8.4
+django-widget-tweaks==1.4.2
+Markdown==2.6.11
+misaka==2.1.0
+pycparser==2.18
+pytz==2018.4
+wincertstore==0.2

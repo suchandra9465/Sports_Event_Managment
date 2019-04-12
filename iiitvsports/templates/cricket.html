@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+  {% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/cric.css' %}">
+  {% endblock %}
+{% block body_block %}
+<h1 align="center">CRICKET</h1>
+<div class="container">
+<img src="{% static "images/cricket.jpeg" %}" alt="Avatar" class="image">
+<div class="overlay">
+  <div class="text">
+
+
+
+<div style="padding:5px 15px 00px;font-size:16px">
+
+<h2 align="center">ABOUT US</h2>
+
+<p>Cricket is a passion in India and we, as a team represent the passion of IIIT Vadodara towards this legendary game. Cricket is in our hearts and our souls. The IIITV cricket team sincerely believes in qualities such as true sporting spirit and team effort. Each and every member of the team is a reflection of these values. The team comprises of a blend of cricket enthusiasts instilled with inborn talents and all these players gel together to form this fantastic unit.</p>
+
+<h2 align="center">FACILITIES</h2>
+<p>We have a well-devoted ground especially for cricket with the facilities of flood lights and nets. the cricket ground, is the Main Ground near the Academic Area . The pitch is regularly maintained by experienced people. These facilities are mostly for institute team players.</p>
+
+<div class="title">
+<h1>
+<a href="">COACH</a><br>
+<img src="{% static "images/cricketcoach.jpg" %}" border="0"  height="100px" width="100px"/>
+</h1>
+<span class="right">
+<a href="" target="_blank">
+
+
+</a>
+</span>
+<p>COACH NAME:MR DEEKSHA</p>
+
+<p>MOBILE NO:9898746475</p>
+
+<p>EMAIL ID:deeksha@iiitvadodara.ac.in</p>
+
+<br><br><br>
+
+<h3 class="stay"><b>STAY CONNECTED</b></h3>
+
+<a href="https://www.twitter.com/iiitvadodara/"><img src="{% static "images/twitter.png" %}" alt="img not found" class="twitter" width="50px" height="50px"></a>
+
+<a href="https://www.facebook.com/iiitvadodara/"><img src="{% static "images/facebook.png" %}" alt="img not found" class="facebook" width="50px" height="50px"></a>
+
+<a href="https://www.youtube.com/watch?v=uu1CKfWyMQU"><img src="{% static "images/youtube.png" %}" alt="img not found" class="youtube" width="50px" height="50px"></a>
+
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block javascript %}
+  <script src="{% static "js/cric.js" %}"type="text/javascript">
+
+  </script>
+{% endblock %}

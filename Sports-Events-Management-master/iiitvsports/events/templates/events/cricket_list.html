@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+
+  <div class="mb-4">
+    <a href="{% url 'events:add_team_cricket' pk=event.pk %}" class="btn btn-primary" role="button">Create Team</a>
+  </div>
+
+  {% for cricket in crickets %}
+    <div id="{{ team.pk }}" class="card {% if forloop.last %}mb-4{% else %}mb-2{% endif %} {% if forloop.first %}border-dark{% endif %}">
+      {% if forloop.first %}
+        <div class="card-header text-white bg-dark py-2 px-3">{{event.title}}</div>
+      {% endif %}
+      <div class="card-body p-3">
+        <div class="row">
+          <div class="col-2">
+            <img src="{% static 'images/cric_ball.jpg' %}" alt="{{ cricket.created_by.username }}" class="w-100 rounded">
+            <strong class="text-muted">Created by: {{ cricket.created_by.username }}</strong>
+          </div>
+          <div class="col-10">
+            <div class="row mb-3">
+              <div class="col-6">
+                <strong class="text-muted">Team Name: {{ cricket.team_name }}</strong>
+              </div>
+              <div class="col-6 text-right">
+                <small class="text-muted">{{ cricket.created_at }}</small>
+                {% if cricket.created_by == user %}
+
+                   <a href="{% url 'events:cricket_edit' cricket.event.pk cricket.pk %}"
+                      class="btn btn-primary btn-sm"
+                      role="button">Edit</a>
+
+               {% endif %}
+              </div>
+            </div>
+              <div class="col-6">
+                <strong class="text-muted">Players:<br> {{cricket.Player1}}, {{cricket.Player2}}, {{cricket.Player3}}, {{cricket.Player4}},
+                  {{cricket.Player5}}, {{cricket.Player6}}, {{cricket.Player7}}, {{cricket.Player8}},
+                  {{cricket.Player9}}, {{cricket.Player10}}, {{cricket.Player11}}</strong>
+              </div>
+              {# here #}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {# {% include 'includes/pagination.html' %} #}
+
+{% endblock %}
